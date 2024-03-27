@@ -1,2 +1,1 @@
-# jabberGabrilonAlex
-jajaja
+# Jabberpoint

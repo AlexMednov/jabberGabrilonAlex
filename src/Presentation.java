@@ -29,6 +29,46 @@ public class Presentation {
 		clear();
 	}
 
+	public String getShowTitle()
+	{
+		return showTitle;
+	}
+
+	public void setShowTitle(String showTitle)
+	{
+		this.showTitle = showTitle;
+	}
+
+	public ArrayList<Slide> getShowList()
+	{
+		return showList;
+	}
+
+	public void setShowList(ArrayList<Slide> showList)
+	{
+		this.showList = showList;
+	}
+
+	public int getCurrentSlideNumber()
+	{
+		return currentSlideNumber;
+	}
+
+	public void setCurrentSlideNumber(int currentSlideNumber)
+	{
+		this.currentSlideNumber = currentSlideNumber;
+	}
+
+	public SlideViewerComponent getSlideViewComponent()
+	{
+		return slideViewComponent;
+	}
+
+	public void setSlideViewComponent(SlideViewerComponent slideViewComponent)
+	{
+		this.slideViewComponent = slideViewComponent;
+	}
+
 	public int getSize() {
 		return showList.size();
 	}

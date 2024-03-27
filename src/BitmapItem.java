@@ -39,7 +39,27 @@ public class BitmapItem extends SlideItem {
 		}
 	}
 
-// An empty bitmap-item
+	public BufferedImage getBufferedImage()
+	{
+		return bufferedImage;
+	}
+
+	public void setBufferedImage(BufferedImage bufferedImage)
+	{
+		this.bufferedImage = bufferedImage;
+	}
+
+	public String getImageName()
+	{
+		return imageName;
+	}
+
+	public void setImageName(String imageName)
+	{
+		this.imageName = imageName;
+	}
+
+	// An empty bitmap-item
 	public BitmapItem() {
 		this(0, null);
 	}

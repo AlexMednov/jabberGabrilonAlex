@@ -18,6 +18,16 @@ public class KeyController extends KeyAdapter {
 		presentation = p;
 	}
 
+	public Presentation getPresentation()
+	{
+		return presentation;
+	}
+
+	public void setPresentation(Presentation presentation)
+	{
+		this.presentation = presentation;
+	}
+
 	public void keyPressed(KeyEvent keyEvent) {
 		switch(keyEvent.getKeyCode()) {
 			case KeyEvent.VK_PAGE_DOWN:

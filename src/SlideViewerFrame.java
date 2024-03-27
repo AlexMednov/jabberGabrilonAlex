@@ -28,6 +28,8 @@ public class SlideViewerFrame extends JFrame {
 		setupWindow(slideViewerComponent, presentation);
 	}
 
+
+
 // Setup GUI
 	public void setupWindow(SlideViewerComponent 
 			slideViewerComponent, Presentation presentation) {

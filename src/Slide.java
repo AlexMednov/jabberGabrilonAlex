@@ -23,6 +23,16 @@ public class Slide {
 		items = new Vector<SlideItem>();
 	}
 
+	public Vector<SlideItem> getItems()
+	{
+		return items;
+	}
+
+	public void setItems(Vector<SlideItem> items)
+	{
+		this.items = items;
+	}
+
 	// Add a slide item
 	public void append(SlideItem anItem) {
 		items.addElement(anItem);
