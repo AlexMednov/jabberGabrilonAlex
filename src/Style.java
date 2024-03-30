@@ -24,72 +24,51 @@ public class Style {
 	int fontSize;
 	int leading;
 
-	public Style(int indent, Color color, int points, int leading) {
-		this.indent = indent;
-		this.color = color;
-		font = new Font(FONTNAME, Font.BOLD, fontSize=points);
-		this.leading = leading;
+	public static Style[] getStyles() {
+		return styles;
 	}
 
-	public static Style getStyle(int level) {
-		if (level >= styles.length) {
-			level = styles.length - 1;
-		}
-		return styles[level];
-	}
-
-
-	public static void setStyles(Style[] styles)
-	{
+	public static void setStyles(Style[] styles) {
 		Style.styles = styles;
 	}
 
-	public int getIndent()
-	{
+	public int getIndent() {
 		return indent;
 	}
 
-	public void setIndent(int indent)
-	{
+	public void setIndent(int indent) {
 		this.indent = indent;
 	}
 
-	public Color getColor()
-	{
+	public Color getColor() {
 		return color;
 	}
 
-	public void setColor(Color color)
-	{
+	public void setColor(Color color) {
 		this.color = color;
 	}
 
-	public Font getFont(float scale) {
-		return font.deriveFont(fontSize * scale);
+	public Font getFont() {
+		return font;
 	}
 
-	public void setFont(Font font)
-	{
+	public void setFont(Font font) {
 		this.font = font;
 	}
 
-	public int getFontSize()
-	{
+	public int getFontSize() {
 		return fontSize;
 	}
 
-	public void setFontSize(int fontSize)
-	{
+	public void setFontSize(int fontSize) {
 		this.fontSize = fontSize;
 	}
 
-	public int getLeading()
-	{
+	public int getLeading() {
 		return leading;
 	}
 
-	public void setLeading(int leading)
-	{
+	public void setLeading(int leading) {
 		this.leading = leading;
 	}
 
@@ -103,8 +82,26 @@ public class Style {
 		styles[4] = new Style(90, Color.black, 24, 10);	// style for item-level 4
 	}
 
+	public void createStyle(int indent, Color color, int points, int leading){
+
+	}
+
+	public static Style getStyle(int level) {
+		return styles[level];
+	}
+
+	public Style(int indent, Color color, int points, int leading) {
+		this.indent = indent;
+		this.color = color;
+		font = new Font(FONTNAME, Font.BOLD, fontSize=points);
+		this.leading = leading;
+	}
+
 	public String toString() {
 		return "["+ indent + "," + color + "; " + fontSize + " on " + leading +"]";
 	}
 
+	public Font getFont(float scale) {
+		return font.deriveFont(fontSize * scale);
+	}
 }
