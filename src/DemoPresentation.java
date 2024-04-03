@@ -12,8 +12,8 @@ class DemoPresentation extends Accessor {
 
 	public void loadFile(Presentation presentation, String unusedFilename) {
 		presentation.setTitle("Demo Presentation");
-		Slide slide;
-		slide = new Slide();
+
+		Slide slide = new Slide();
 		slide.setTitle("JabberPoint");
 		slide.append(1, "The Java Presentation Tool");
 		slide.append(2, "Copyright (c) 1996-2000: Ian Darwin");

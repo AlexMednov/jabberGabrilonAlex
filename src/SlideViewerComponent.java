@@ -20,25 +20,25 @@ import javax.swing.JFrame;
 public class SlideViewerComponent extends JComponent {
 		
 	private Slide slide; // current slide
-	private Font labelFont = null; // font for labels
-	private Presentation presentation = null; // the presentation
-	private JFrame frame = null;
+	private Font labelFont; // font for labels
+	private Presentation presentation; // the presentation
+	private JFrame frame;
 	
 	private static final long serialVersionUID = 227L;
 	
 	private static final Color BGCOLOR = Color.white;
 	private static final Color COLOR = Color.black;
-	private static final String FONTNAME = "Dialog";
-	private static final int FONTSTYLE = Font.BOLD;
-	private static final int FONTHEIGHT = 10;
+	private static final String FONT_NAME = "Dialog";
+	private static final int FONT_STYLE = Font.BOLD;
+	private static final int FONT_HEIGHT = 10;
 	private static final int XPOS = 1100;
 	private static final int YPOS = 20;
 
-	public SlideViewerComponent(Presentation pres, JFrame frame) {
+	public SlideViewerComponent(Presentation presentation, JFrame frame) {
 		setBackground(BGCOLOR); 
-		presentation = pres;
-		labelFont = new Font(FONTNAME, FONTSTYLE, FONTHEIGHT);
+		this.presentation = presentation;
 		this.frame = frame;
+		labelFont = new Font(FONT_NAME, FONT_STYLE, FONT_HEIGHT);
 	}
 
 	public Dimension getPreferredSize() {
@@ -85,13 +85,13 @@ public class SlideViewerComponent extends JComponent {
 		this.frame = frame;
 	}
 
-	public void update(Presentation presentation, Slide data) {
-		if (data == null) {
+	public void update(Presentation presentation, Slide slide) {
+		if (slide == null) {
 			repaint();
 			return;
 		}
 		this.presentation = presentation;
-		this.slide = data;
+		this.slide = slide;
 		repaint();
 		frame.setTitle(presentation.getTitle());
 	}

@@ -14,8 +14,8 @@ import java.awt.event.KeyAdapter;
 public class KeyController extends KeyAdapter {
 	private Presentation presentation; // Commands are given to the presentation
 
-	public KeyController(Presentation p) {
-		presentation = p;
+	public KeyController(Presentation presentation) {
+		this.presentation = presentation;
 	}
 
 	public Presentation getPresentation()
@@ -41,8 +41,7 @@ public class KeyController extends KeyAdapter {
 			case '-':
 				presentation.prevSlide();
 				break;
-			case 'q':
-			case 'Q':
+			case KeyEvent.VK_Q:
 				System.exit(0);
 				break; // Probably never reached!!
 			default:
