@@ -35,6 +35,7 @@ public class SlideViewerComponent extends JComponent {
 	private static final int YPOS = 20;
 
 	public SlideViewerComponent(Presentation presentation, JFrame frame) {
+		super();
 		setBackground(BGCOLOR); 
 		this.presentation = presentation;
 		this.frame = frame;

@@ -24,8 +24,15 @@ public class Style {
 	int fontSize;
 	int leading;
 
-	public static Style[] getStyles() {
-		return styles;
+	public Style(int indent, Color color, int points, int leading) {
+		this.indent = indent;
+		this.color = color;
+		font = new Font(FONTNAME, Font.BOLD, fontSize=points);
+		this.leading = leading;
+	}
+
+	public static Style getStyle(int level) {
+		return styles[level];
 	}
 
 	public static void setStyles(Style[] styles) {
@@ -48,8 +55,8 @@ public class Style {
 		this.color = color;
 	}
 
-	public Font getFont() {
-		return font;
+	public Font getFont(float scale) {
+		return font.deriveFont(fontSize * scale);
 	}
 
 	public void setFont(Font font) {
@@ -82,26 +89,7 @@ public class Style {
 		styles[4] = new Style(90, Color.black, 24, 10);	// style for item-level 4
 	}
 
-	public void createStyle(int indent, Color color, int points, int leading){
-
-	}
-
-	public static Style getStyle(int level) {
-		return styles[level];
-	}
-
-	public Style(int indent, Color color, int points, int leading) {
-		this.indent = indent;
-		this.color = color;
-		font = new Font(FONTNAME, Font.BOLD, fontSize=points);
-		this.leading = leading;
-	}
-
 	public String toString() {
 		return "["+ indent + "," + color + "; " + fontSize + " on " + leading +"]";
-	}
-
-	public Font getFont(float scale) {
-		return font.deriveFont(fontSize * scale);
 	}
 }

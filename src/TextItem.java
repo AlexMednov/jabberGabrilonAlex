@@ -10,7 +10,6 @@ import java.awt.geom.Rectangle2D;
 import java.awt.image.ImageObserver;
 import java.text.AttributedString;
 import java.util.List;
-import java.util.Iterator;
 import java.util.ArrayList;
 
 /** <p>A tekst item.</p>
@@ -59,13 +58,12 @@ public class TextItem extends SlideItem {
 
 
 	// give the bounding box of the item
-	public Rectangle getBoundingBox(Graphics g, ImageObserver observer, 
-			float scale, Style myStyle) {
+	public Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale, Style myStyle) {
 		List<TextLayout> layouts = getLayouts(g, myStyle, scale);
-		int xsize = 0, ysize = (int) (myStyle.leading * scale);
-		Iterator<TextLayout> iterator = layouts.iterator();
-		while (iterator.hasNext()) {
-			TextLayout layout = iterator.next();
+		int xsize = 0;
+		int ysize = (int) (myStyle.leading * scale);
+
+		for (TextLayout layout : layouts) {
 			Rectangle2D bounds = layout.getBounds();
 			if (bounds.getWidth() > xsize) {
 				xsize = (int) bounds.getWidth();
@@ -75,33 +73,33 @@ public class TextItem extends SlideItem {
 			}
 			ysize += layout.getLeading() + layout.getDescent();
 		}
-		return new Rectangle((int) (myStyle.indent*scale), 0, xsize, ysize );
+
+		return new Rectangle((int) (myStyle.indent * scale), 0, xsize, ysize);
 	}
 
 
 
+
 	// draw the item
-	public void draw(int x, int y, float scale, Graphics g, 
-			Style myStyle, ImageObserver o) {
-		if (text == null || text.length() == 0) {
+	public void draw(int x, int y, float scale, Graphics g, Style myStyle, ImageObserver o) {
+		if (text == null || text.isEmpty()) {
 			return;
 		}
 		List<TextLayout> layouts = getLayouts(g, myStyle, scale);
-		Point pen = new Point(x + (int)(myStyle.indent * scale), 
+		Point pen = new Point(x + (int)(myStyle.indent * scale),
 				y + (int) (myStyle.leading * scale));
 		Graphics2D g2d = (Graphics2D)g;
 		g2d.setColor(myStyle.color);
-		Iterator<TextLayout> it = layouts.iterator();
-		while (it.hasNext()) {
-			TextLayout layout = it.next();
+
+		for (TextLayout layout : layouts) {
 			pen.y += layout.getAscent();
 			layout.draw(g2d, pen.x, pen.y);
 			pen.y += layout.getDescent();
 		}
-	  }
+	}
 
 	private List<TextLayout> getLayouts(Graphics g, Style s, float scale) {
-		List<TextLayout> layouts = new ArrayList<TextLayout>();
+		List<TextLayout> layouts = new ArrayList<>();
 		AttributedString attrStr = getAttributedString(s, scale);
     	Graphics2D g2d = (Graphics2D) g;
     	FontRenderContext frc = g2d.getFontRenderContext();

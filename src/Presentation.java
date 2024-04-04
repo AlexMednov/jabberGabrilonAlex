@@ -19,12 +19,14 @@ public class Presentation {
 	private int currentSlideNumber; // the slidenummer of the current Slide
 	private SlideViewerComponent slideViewComponent; // the viewcomponent of the Slides
 
-	public Presentation() {
-		slideViewComponent = null;
+	public Presentation()
+	{
+		super();
 		clear();
 	}
 
 	public Presentation(SlideViewerComponent slideViewerComponent) {
+		super();
 		this.slideViewComponent = slideViewerComponent;
 		clear();
 	}

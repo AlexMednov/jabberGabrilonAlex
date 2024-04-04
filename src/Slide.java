@@ -14,8 +14,8 @@ import java.util.Vector;
  */
 
 public class Slide {
-	public final static int WIDTH = 1200;
-	public final static int HEIGHT = 800;
+	public static final int WIDTH = 1200;
+	public static final int HEIGHT = 800;
 	protected String title; // title is saved separately
 	protected Vector<SlideItem> items; // slide items are saved in a Vector
 
@@ -34,17 +34,18 @@ public class Slide {
 		return items;
 	}
 
-	public Vector<SlideItem> setSlideItems(Vector<SlideItem> slideItems) {
+	public void setSlideItems(Vector<SlideItem> slideItems) {
 		this.items = slideItems;
-        return slideItems;
-    }
+	}
+
 	// give the size of the Slide
 	public int getSize() {
 		return items.size();
 	}
 
 	public Slide() {
-		items = new Vector<SlideItem>();
+		super();
+		items = new Vector<>();
 	}
 
 	// Add a slide item
@@ -67,7 +68,7 @@ public class Slide {
 	    slideItem.draw(rectangle.x, y, scale, graphics, style, imageObserver);
 	    y += slideItem.getBoundingBox(graphics, imageObserver, scale, style).height;
 	    for (int number=0; number<getSize(); number++) {
-	      slideItem = (SlideItem)getSlideItems().elementAt(number);
+	      slideItem = getSlideItems().elementAt(number);
 	      style = Style.getStyle(slideItem.getLevel());
 	      slideItem.draw(rectangle.x, y, scale, graphics, style, imageObserver);
 	      y += slideItem.getBoundingBox(graphics, imageObserver, scale, style).height;
