@@ -6,6 +6,5 @@ import java.util.Vector;
 import java.awt.Rectangle;
 
 public abstract class Creator {
-    public abstract Product create(String title, Vector<SlideItem> items);
 }
 

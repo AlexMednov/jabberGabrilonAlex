@@ -8,13 +8,4 @@ import java.util.Vector;
 
 public class BaselineCreator extends Creator
 {
-    @Override
-    public Slide create(String title, Vector<SlideItem> items) {
-        return null;
-    }
-
-    @Override
-    public Slide createProduct(String title, Vector<SlideItem> items) {
-        return new Slide(items, title);
-    }
 }
