@@ -15,9 +15,14 @@ public class AnimationBuilder implements Builder {
 
     @Override
     public void animationCreatorSetup(String title, Vector<SlideItem> items, String animationPath) {
+        this.result = new AnimationSlide(title, items, animationPath);
     }
 
     @Override
     public void baselineCreatorSetup(String title, Vector<SlideItem> items) {
+    }
+
+    public AnimationSlide getResult() {
+        return result;
     }
 }

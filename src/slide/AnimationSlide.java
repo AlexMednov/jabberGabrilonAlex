@@ -9,7 +9,13 @@ public class AnimationSlide implements BaseSlide {
 
     private String title; // title is saved separately
 
-    protected Vector<SlideItem> items;
+    private Vector<SlideItem> items;
+
+    public AnimationSlide(String title, Vector<SlideItem> items, String animationPath) {
+        this.animationPath = animationPath;
+        this.title = title;
+        this.items = items;
+    }
 
     @Override
     public void draw(Graphics graphics, Rectangle rectangle, ImageObserver imageObserver) {
@@ -24,6 +30,30 @@ public class AnimationSlide implements BaseSlide {
     @Override
     public void append(SlideItem anItem) {
 
+    }
+
+    public Vector<SlideItem> getItems() {
+        return items;
+    }
+
+    public void setItems(Vector<SlideItem> items) {
+        this.items = items;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getAnimationPath() {
+        return animationPath;
+    }
+
+    public void setAnimationPath(String animationPath) {
+        this.animationPath = animationPath;
     }
     //THIS IS NOTE DONE IT NEEDS TO BE IMPLEMENTED WITH ACTUAL CODE!!!!
 }
