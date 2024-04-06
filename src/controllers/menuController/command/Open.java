@@ -1,5 +1,7 @@
 package controllers.menuController.command;
 
+import presentation.Presentation;
+
 import java.awt.*;
 
 public class Open implements Command{
@@ -28,7 +30,7 @@ public class Open implements Command{
     }
 
     @Override
-    public void execute(Frame parent) {
-
+    public Frame execute(Frame parent, Presentation presentation) {
+        return this.receiver.openFile(parent, presentation, this.openPath);
     }
 }

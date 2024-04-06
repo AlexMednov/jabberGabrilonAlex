@@ -12,19 +12,19 @@ import javax.swing.*;
 import java.io.IOException;
 
 public class New implements Command{
-    private String receiver;
+    private Reciever receiver;
     private Presentation presentation;
 
-    public New(String receiver, Presentation presentation) {
+    public New(Reciever receiver, Presentation presentation) {
         this.receiver = receiver;
         this.presentation = presentation;
     }
 
-    public String getReceiver() {
+    public Reciever getReceiver() {
         return receiver;
     }
 
-    public void setReceiver(String receiver) {
+    public void setReceiver(Reciever receiver) {
         this.receiver = receiver;
     }
 
@@ -36,16 +36,7 @@ public class New implements Command{
         this.presentation = presentation;
     }
     @Override
-    public void execute(Frame parent) {
-        presentation.clear();
-        Accessor xmlAccessor = new XMLAccessor();
-        try {
-            xmlAccessor.loadFile(presentation, MenuControllerConstants.TESTFILE.getValue());
-            presentation.setSlideNumber(0);
-        } catch (IOException exc) {
-            JOptionPane.showMessageDialog(parent, MenuControllerConstants.IOEX.getValue() + exc,
-                    MenuControllerConstants.LOADERR.getValue(), JOptionPane.ERROR_MESSAGE);
-        }
-        parent.repaint();
+    public Frame execute(Frame parent, Presentation presentation) {
+        return this.receiver.newFile(parent, presentation);
     }
 }

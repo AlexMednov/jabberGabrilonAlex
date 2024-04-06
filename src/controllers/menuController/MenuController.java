@@ -58,7 +58,7 @@ public class MenuController extends MenuBar {
 		parent = frame;
 		presentation = pres;
 
-		ArrayList<Command> command = new ArrayList<Command>();
+		//Command newFile = new New();
 
 		MenuItem menuItem;
 		Menu fileMenu = new Menu(FILE);
