@@ -7,20 +7,17 @@ import slide.VideoSlide;
 
 import java.util.Vector;
 
-public class VideoBuilder extends Builder {
+public class VideoBuilder implements Builder {
 
     @Override
-    public VideoSlide videoCreatorSetup(String videoPath, int videoXAxis, int videoYAxis, int width, int height) {
-        return null;
+    public void videoCreatorSetup(String videoPath, int videoXAxis, int videoYAxis, int width, int height) {
     }
 
     @Override
-    public AnimationSlide animationCreatorSetup(String animationPath) {
-        return null;
+    public void animationCreatorSetup(String title, Vector<SlideItem> items, String animationPath) {
     }
 
     @Override
-    public Slide baselineCreatorSetup(String title, Vector<SlideItem> items) {
-        return null;
+    public void baselineCreatorSetup(String title, Vector<SlideItem> items) {
     }
 }

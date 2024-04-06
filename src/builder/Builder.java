@@ -7,9 +7,9 @@ import slide.Slide;
 
 import java.util.Vector;
 
-public abstract class Builder {
-    public abstract VideoSlide videoCreatorSetup(String videoPath, int videoXAxis, int videoYAxis, int width, int height);
-    public abstract AnimationSlide animationCreatorSetup(String animationPath);
-    public abstract Slide baselineCreatorSetup(String title, Vector<SlideItem> items);
+interface Builder {
+    public abstract void videoCreatorSetup(String videoPath, int videoXAxis, int videoYAxis, int width, int height);
+    public abstract void animationCreatorSetup(String title, Vector<SlideItem> items, String animationPath);
+    public abstract void baselineCreatorSetup(String title, Vector<SlideItem> items);
 }
 

@@ -3,7 +3,7 @@ package slide;
 import java.awt.*;
 import java.awt.image.ImageObserver;
 
-public class VideoSlide extends BaseSlide {
+public class VideoSlide implements BaseSlide {
     private String videoPath;
     private String videoXAxis;
     private String videoYAxis;

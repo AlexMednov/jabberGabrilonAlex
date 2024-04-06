@@ -17,7 +17,21 @@ import style.Style;
  * @version 1.6 2014/05/16 Sylvia Stuurman
  */
 
-public class Slide extends BaseSlide {
+public class Slide implements BaseSlide {
+	public static final int WIDTH = 1200;
+	public static final int HEIGHT = 800;
+
+	protected String title; // title is saved separately
+
+	public Vector<SlideItem> getItems() {
+		return items;
+	}
+
+	public void setItems(Vector<SlideItem> items) {
+		this.items = items;
+	}
+
+	private Vector<SlideItem> items; // slide items are saved in a Vector
 
 	// give the title of the slide
 	public String getTitle() {
@@ -44,8 +58,12 @@ public class Slide extends BaseSlide {
 	}
 
 	public Slide() {
-		super();
 		items = new Vector<>();
+	}
+
+	public Slide(String title, Vector<SlideItem> items){
+		this.items = items;
+		this.title = title;
 	}
 
 	// Add a slide item
@@ -80,6 +98,6 @@ public class Slide extends BaseSlide {
 
 	// Give the scale for drawing
 	private float getScale(Rectangle area) {
-		return Math.min(((float)area.width) / ((float)BaseSlide.WIDTH), ((float)area.height) / ((float)BaseSlide.HEIGHT));
+		return Math.min(((float)area.width) / ((float)Slide.WIDTH), ((float)area.height) / ((float)Slide.HEIGHT));
 	}
 }
