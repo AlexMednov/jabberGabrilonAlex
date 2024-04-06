@@ -6,7 +6,7 @@ public enum Leading {
     MED(20),
     HIGH(30);
 
-    private int value;
+    private final int value;
     Leading(int value) {
         this.value = value;
     }

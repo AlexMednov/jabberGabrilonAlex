@@ -7,9 +7,10 @@ public enum Points {
     HIGH(40),
     MAX(48);
 
-    private int value;
+    private final int value;
 
     Points(int value) {
+        this.value = value;
     }
 
     public int getValue() {

@@ -6,7 +6,7 @@ public enum Indent {
     MED(50),
     HIGH(70),
     MAX(90);
-    private int value;
+    private final int value;
 
     Indent(int value) {
         this.value = value;

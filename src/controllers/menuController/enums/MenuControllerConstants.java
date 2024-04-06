@@ -17,9 +17,10 @@ public enum MenuControllerConstants {
     GOTO("Go to"),
     EXIT("Exit"),
     FILE("File"),
-    ABOUT("About");
+    ABOUT("About"),
+    DEFPATH("file.xml");
 
-    private String value;
+    private final String value;
 
     MenuControllerConstants(String value) {
         this.value = value;

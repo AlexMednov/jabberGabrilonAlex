@@ -1,13 +1,13 @@
 package controllers.menuController.command;
 
-import java.awt.Frame;
-
 import presentation.Presentation;
 
-public class New implements Command{
+import java.awt.*;
+
+public class Previous implements Command{
     private Reciever receiver;
 
-    public New(Reciever receiver) {
+    public Previous(Reciever receiver) {
         this.receiver = receiver;
     }
 
@@ -21,6 +21,6 @@ public class New implements Command{
 
     @Override
     public Frame execute(Frame parent, Presentation presentation) {
-        return this.receiver.newFile(parent, presentation);
+        return this.receiver.prev(parent, presentation);
     }
 }

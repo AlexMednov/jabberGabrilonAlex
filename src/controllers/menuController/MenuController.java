@@ -2,8 +2,8 @@ package controllers.menuController;
 
 import accessors.Accessor;
 import accessors.XMLAccessor;
-import controllers.menuController.command.Command;
-import controllers.menuController.command.New;
+import controllers.menuController.command.*;
+import controllers.menuController.enums.MenuControllerConstants;
 import presentation.Presentation;
 
 import java.awt.MenuBar;
@@ -41,7 +41,6 @@ public class MenuController extends MenuBar {
 	protected static final String HELP = "Help";
 	protected static final String NEW = "New";
 	protected static final String NEXT = "Next";
-	protected static final String OPEN = "Open";
 	protected static final String PAGENR = "Page number?";
 	protected static final String PREV = "Prev";
 	protected static final String SAVE = "Save";
@@ -58,79 +57,102 @@ public class MenuController extends MenuBar {
 		parent = frame;
 		presentation = pres;
 
-		//Command newFile = new New();
+		Invoker invoker = new Invoker();
+		Reciever reciever = new Reciever();
 
 		MenuItem menuItem;
 		Menu fileMenu = new Menu(FILE);
-		fileMenu.add(menuItem = mkMenuItem(OPEN));
+
+		//Open file
+		menuItem = mkMenuItem(MenuControllerConstants.OPEN.getValue());
+		fileMenu.add(menuItem);
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
-				presentation.clear();
-				Accessor xmlAccessor = new XMLAccessor();
-				try {
-					xmlAccessor.loadFile(presentation, TESTFILE);
-					presentation.setSlideNumber(0);
-				} catch (IOException exc) {
-					JOptionPane.showMessageDialog(parent, IOEX + exc, 
-         			LOADERR, JOptionPane.ERROR_MESSAGE);
-				}
-				parent.repaint();
+				Command open = new Open(reciever, MenuControllerConstants.DEFPATH.getValue());
+				invoker.setCommand(open);
+				parent = invoker.execute(parent, presentation);
 			}
 		} );
-		fileMenu.add(menuItem = mkMenuItem(NEW));
+
+		//New file
+		menuItem = mkMenuItem(MenuControllerConstants.NEW.getValue());
+		fileMenu.add(menuItem);
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
-				presentation.clear();
-				parent.repaint();
+				Command newFile = new New(reciever);
+				invoker.setCommand(newFile);
+				parent = invoker.execute(parent, presentation);
 			}
 		});
+
+		//Save file
 		fileMenu.add(menuItem = mkMenuItem(SAVE));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Accessor xmlAccessor = new XMLAccessor();
-				try {
-					xmlAccessor.saveFile(presentation, SAVEFILE);
-				} catch (IOException exc) {
-					JOptionPane.showMessageDialog(parent, IOEX + exc, 
-							SAVEERR, JOptionPane.ERROR_MESSAGE);
-				}
+				Command save = new Save(reciever, MenuControllerConstants.DEFPATH.getValue());
+				invoker.setCommand(save);
+				parent = invoker.execute(parent, presentation);
 			}
 		});
+
+		//Exit file
 		fileMenu.addSeparator();
 		fileMenu.add(menuItem = mkMenuItem(EXIT));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
-				presentation.exit(0);
+				Command exit = new Exit(reciever);
+				invoker.setCommand(exit);
+				parent = invoker.execute(parent, presentation);
 			}
 		});
+
+		//Adding All the assigned stuff to the menu bar
 		add(fileMenu);
+
+		//Adding another dropdown
 		Menu viewMenu = new Menu(VIEW);
+
+		//Next slide
 		viewMenu.add(menuItem = mkMenuItem(NEXT));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
-				presentation.nextSlide();
+				Command next = new Next(reciever);
+				invoker.setCommand(next);
+				parent = invoker.execute(parent, presentation);
 			}
 		});
+
+		//Previous slide
 		viewMenu.add(menuItem = mkMenuItem(PREV));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
-				presentation.prevSlide();
+				Command prev = new Previous(reciever);
+				invoker.setCommand(prev);
+				parent = invoker.execute(parent, presentation);
 			}
 		});
+
+		//Go to slide
 		viewMenu.add(menuItem = mkMenuItem(GOTO));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
-				String pageNumberStr = JOptionPane.showInputDialog((Object)PAGENR);
-				int pageNumber = Integer.parseInt(pageNumberStr);
-				presentation.setSlideNumber(pageNumber - 1);
+				Command goTo = new GoTo(reciever);
+				invoker.setCommand(goTo);
+				parent = invoker.execute(parent, presentation);
 			}
 		});
+
+		//adding all the assigned elements to menu bar
 		add(viewMenu);
+
+		//Help box
 		Menu helpMenu = new Menu(HELP);
 		helpMenu.add(menuItem = mkMenuItem(ABOUT));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
-				AboutBox.show(parent);
+				Command help = new Help(reciever);
+				invoker.setCommand(help);
+				parent = invoker.execute(parent, presentation);
 			}
 		});
 		setHelpMenu(helpMenu);		// needed for portability (Motif, etc.).
