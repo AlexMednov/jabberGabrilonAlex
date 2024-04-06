@@ -6,6 +6,7 @@ import slide.TextItem;
 public class TextItemCreator extends SlideItemCreator {
     @Override
     public SlideItem createSlideItem() {
-        return new TextItem();
+        // Default level and text for TextItem
+        return new TextItem(0, null);
     }
 }
