@@ -33,19 +33,19 @@ public class VideoSlide implements BaseSlide {
         this.videoPath = videoPath;
     }
 
-    public String getVideoXAxis() {
+    public int getVideoXAxis() {
         return videoXAxis;
     }
 
-    public void setVideoXAxis(String videoXAxis) {
+    public void setVideoXAxis(int videoXAxis) {
         this.videoXAxis = videoXAxis;
     }
 
-    public String getVideoYAxis() {
+    public int getVideoYAxis() {
         return videoYAxis;
     }
 
-    public void setVideoYAxis(String videoYAxis) {
+    public void setVideoYAxis(int videoYAxis) {
         this.videoYAxis = videoYAxis;
     }
 
