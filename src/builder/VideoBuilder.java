@@ -8,9 +8,11 @@ import slide.VideoSlide;
 import java.util.Vector;
 
 public class VideoBuilder implements Builder {
+    private VideoSlide result;
 
     @Override
-    public void videoCreatorSetup(String videoPath, int videoXAxis, int videoYAxis, int width, int height) {
+    public void videoCreatorSetup(String title, Vector<SlideItem> items, String videoPath, int videoXAxis, int videoYAxis, int width, int height) {
+        this.result = new VideoSlide(title, items, videoPath, videoXAxis, videoYAxis, width, height);
     }
 
     @Override
@@ -19,5 +21,9 @@ public class VideoBuilder implements Builder {
 
     @Override
     public void baselineCreatorSetup(String title, Vector<SlideItem> items) {
+    }
+
+    public VideoSlide getResult() {
+        return result;
     }
 }

@@ -14,7 +14,7 @@ public class BaselineBuilder implements Builder {
     }
 
     @Override
-    public void videoCreatorSetup(String videoPath, int videoXAxis, int videoYAxis, int width, int height) {
+    public void videoCreatorSetup(String title, Vector<SlideItem> items, String videoPath, int videoXAxis, int videoYAxis, int width, int height) {
     }
 
     @Override

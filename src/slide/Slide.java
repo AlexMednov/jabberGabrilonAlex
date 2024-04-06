@@ -21,7 +21,9 @@ public class Slide implements BaseSlide {
 	public static final int WIDTH = 1200;
 	public static final int HEIGHT = 800;
 
-	protected String title; // title is saved separately
+	private String title; // title is saved separately
+
+	private Vector<SlideItem> items; // slide items are saved in a Vector
 
 	public Vector<SlideItem> getItems() {
 		return items;
@@ -30,8 +32,6 @@ public class Slide implements BaseSlide {
 	public void setItems(Vector<SlideItem> items) {
 		this.items = items;
 	}
-
-	private Vector<SlideItem> items; // slide items are saved in a Vector
 
 	// give the title of the slide
 	public String getTitle() {
