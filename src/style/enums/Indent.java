@@ -1,13 +1,14 @@
-package enums;
+package style.enums;
 
-public enum Leading {
+public enum Indent {
     NONE(0),
-    LOW(10),
-    MED(20),
-    HIGH(30);
-
+    LOW(20),
+    MED(50),
+    HIGH(70),
+    MAX(90);
     private int value;
-    Leading(int value) {
+
+    Indent(int value) {
         this.value = value;
     }
 

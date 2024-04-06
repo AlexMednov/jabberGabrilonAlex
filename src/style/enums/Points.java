@@ -1,4 +1,4 @@
-package enums;
+package style.enums;
 
 public enum Points {
     NONE(0),
