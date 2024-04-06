@@ -26,6 +26,7 @@ public class BaselineBuilder implements Builder {
         this.result = new Slide(title, items);
     }
 
+    @Override
     public Slide getResult() {
         return result;
     }

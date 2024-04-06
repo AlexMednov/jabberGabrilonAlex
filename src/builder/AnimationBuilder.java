@@ -9,6 +9,10 @@ import java.util.Vector;
 
 public class AnimationBuilder implements Builder {
     private AnimationSlide result;
+
+    public AnimationBuilder() {
+    }
+
     @Override
     public void videoCreatorSetup(String title, Vector<SlideItem> items, String videoPath, int videoXAxis, int videoYAxis, int width, int height) {
     }
@@ -22,6 +26,7 @@ public class AnimationBuilder implements Builder {
     public void baselineCreatorSetup(String title, Vector<SlideItem> items) {
     }
 
+    @Override
     public AnimationSlide getResult() {
         return result;
     }
