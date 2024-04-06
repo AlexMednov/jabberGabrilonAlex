@@ -1,5 +1,7 @@
 package controllers.menuController.command;
 
+import java.awt.*;
+
 public class Save implements Command{
     private Reciever receiver;
     private String savePath;
@@ -26,7 +28,7 @@ public class Save implements Command{
     }
 
     @Override
-    public void execute() {
+    public void execute(Frame parent) {
 
     }
 }

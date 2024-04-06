@@ -1,5 +1,7 @@
 package controllers.menuController.command;
 
+import java.awt.*;
+
 public class Open implements Command{
     private Reciever receiver;
     private String openPath;
@@ -26,7 +28,7 @@ public class Open implements Command{
     }
 
     @Override
-    public void execute() {
+    public void execute(Frame parent) {
 
     }
 }
