@@ -1,13 +1,16 @@
 package slide;
 
-public class VideoWrapper {
+import java.awt.*;
+import java.awt.image.ImageObserver;
+
+public class VideoSlide extends BaseSlide {
     private String videoPath;
     private String videoXAxis;
     private String videoYAxis;
     private int width;
     private int height;
 
-    public VideoWrapper(String videoPath, String videoXAxis, String videoYAxis, int width, int height) {
+    public VideoSlide(String videoPath, String videoXAxis, String videoYAxis, int width, int height) {
         this.videoPath = videoPath;
         this.videoXAxis = videoXAxis;
         this.videoYAxis = videoYAxis;
@@ -53,6 +56,21 @@ public class VideoWrapper {
 
     public void setHeight(int height) {
         this.height = height;
+    }
+
+    @Override
+    public void draw(Graphics graphics, Rectangle rectangle, ImageObserver imageObserver) {
+
+    }
+
+    @Override
+    public void append(int level, String message) {
+
+    }
+
+    @Override
+    public void append(SlideItem anItem) {
+
     }
 
     //THIS IS NOT DONE!!!!! IT NEEDS TO HAVE ACTUAL CODE!!!!

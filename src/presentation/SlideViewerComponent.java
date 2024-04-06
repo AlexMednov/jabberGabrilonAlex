@@ -1,6 +1,7 @@
 package presentation;
 
 import presentation.Presentation;
+import slide.BaseSlide;
 import slide.Slide;
 
 import java.awt.Color;
@@ -48,7 +49,7 @@ public class SlideViewerComponent extends JComponent {
 	}
 
 	public Dimension getPreferredSize() {
-		return new Dimension(Slide.WIDTH, Slide.HEIGHT);
+		return new Dimension(BaseSlide.WIDTH, BaseSlide.HEIGHT);
 	}
 
 	public Slide getSlide()

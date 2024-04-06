@@ -17,11 +17,7 @@ import style.Style;
  * @version 1.6 2014/05/16 Sylvia Stuurman
  */
 
-public class Slide {
-	public static final int WIDTH = 1200;
-	public static final int HEIGHT = 800;
-	protected String title; // title is saved separately
-	protected Vector<SlideItem> items; // slide items are saved in a Vector
+public class Slide extends BaseSlide {
 
 	// give the title of the slide
 	public String getTitle() {
@@ -53,16 +49,19 @@ public class Slide {
 	}
 
 	// Add a slide item
+	@Override
 	public void append(SlideItem anItem) {
 		items.addElement(anItem);
 	}
 
 	// Create slide.TextItem of String, and add the slide.TextItem
+	@Override
 	public void append(int level, String message) {
 		append(new TextItem(level, message));
 	}
 
 	// draw the slide
+	@Override
 	public void draw(Graphics graphics, Rectangle rectangle, ImageObserver imageObserver) {
 		float scale = getScale(rectangle);
 	    int y = rectangle.y;
@@ -81,6 +80,6 @@ public class Slide {
 
 	// Give the scale for drawing
 	private float getScale(Rectangle area) {
-		return Math.min(((float)area.width) / ((float)WIDTH), ((float)area.height) / ((float)HEIGHT));
+		return Math.min(((float)area.width) / ((float)BaseSlide.WIDTH), ((float)area.height) / ((float)BaseSlide.HEIGHT));
 	}
 }
