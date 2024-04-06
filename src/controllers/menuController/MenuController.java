@@ -2,6 +2,8 @@ package controllers.menuController;
 
 import accessors.Accessor;
 import accessors.XMLAccessor;
+import controllers.menuController.command.Command;
+import controllers.menuController.command.New;
 import presentation.Presentation;
 
 import java.awt.MenuBar;
@@ -12,6 +14,7 @@ import java.awt.MenuShortcut;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
@@ -54,6 +57,9 @@ public class MenuController extends MenuBar {
 	public MenuController(Frame frame, Presentation pres) {
 		parent = frame;
 		presentation = pres;
+
+		ArrayList<Command> command = new ArrayList<Command>();
+
 		MenuItem menuItem;
 		Menu fileMenu = new Menu(FILE);
 		fileMenu.add(menuItem = mkMenuItem(OPEN));
