@@ -3,8 +3,7 @@ package controllers.menuController.command;
 import accessors.Accessor;
 import accessors.XMLAccessor;
 import controllers.menuController.AboutBox;
-import controllers.menuController.MenuController;
-import controllers.menuController.enums.MenuControllerConstants;
+import controllers.menuController.enums.*;
 import presentation.Presentation;
 
 import javax.swing.*;

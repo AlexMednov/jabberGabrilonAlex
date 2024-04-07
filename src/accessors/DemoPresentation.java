@@ -2,19 +2,16 @@ package accessors;
 
 import builder.BaselineBuilder;
 import builder.Director;
-import slide.BitmapItem;
 import slide.Factory.BitmapItemCreator;
 import slide.Factory.SlideItemCreator;
 import slide.Factory.TextItemCreator;
-import slide.Slide;
 import presentation.Presentation;
 import slide.SlideItem;
-import style.enums.Level;
+import style.enums.*;
 
 import java.util.Vector;
 
 class DemoPresentation extends Accessor {
-
 	public void loadFile(Presentation presentation, String unusedFilename) {
 		BaselineBuilder baselineBuilder = new BaselineBuilder();
 		Director director = new Director(baselineBuilder);
