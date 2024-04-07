@@ -23,14 +23,11 @@ public class Presentation {
 	private int currentSlideNumber; // the slidenummer of the current slide.Slide
 	private SlideViewerComponent slideViewComponent; // the viewcomponent of the Slides
 
-	public Presentation()
-	{
-		super();
+	public Presentation() {
 		clear();
 	}
 
 	public Presentation(SlideViewerComponent slideViewerComponent) {
-		super();
 		this.slideViewComponent = slideViewerComponent;
 		clear();
 	}
