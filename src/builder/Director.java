@@ -12,6 +12,14 @@ public class Director {
         this.builder = builder;
     }
 
+    public Builder getBuilder() {
+        return builder;
+    }
+
+    public void setBuilder(Builder builder) {
+        this.builder = builder;
+    }
+
     public void changeBuilder(Builder builder){
         this.builder = builder;
     }

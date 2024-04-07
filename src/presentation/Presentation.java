@@ -1,5 +1,6 @@
 package presentation;
 
+import slide.BaseSlide;
 import slide.Slide;
 
 import java.util.ArrayList;
@@ -125,8 +126,8 @@ public class Presentation {
 	}
 
 	// Add a slide to the presentation
-	public void append(Slide slide) {
-		showList.add(slide);
+	public void append(BaseSlide slide) {
+		showList.add((Slide) slide);
 	}
 
 	// Get a slide with a certain slidenumber

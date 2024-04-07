@@ -1,14 +1,11 @@
 package builder;
 
-import slide.AnimationSlide;
-import slide.Slide;
-import slide.SlideItem;
-import slide.VideoSlide;
+import slide.*;
 
 import java.util.Vector;
 
 public class BaselineBuilder implements Builder {
-    private Slide result;
+    private BaseSlide result;
 
     public BaselineBuilder() {
     }
@@ -27,7 +24,7 @@ public class BaselineBuilder implements Builder {
     }
 
     @Override
-    public Slide getResult() {
+    public BaseSlide getResult() {
         return result;
     }
 }

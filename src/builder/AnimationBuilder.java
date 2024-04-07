@@ -1,14 +1,11 @@
 package builder;
 
-import slide.AnimationSlide;
-import slide.Slide;
-import slide.SlideItem;
-import slide.VideoSlide;
+import slide.*;
 
 import java.util.Vector;
 
 public class AnimationBuilder implements Builder {
-    private AnimationSlide result;
+    private BaseSlide result;
 
     public AnimationBuilder() {
     }
@@ -27,7 +24,7 @@ public class AnimationBuilder implements Builder {
     }
 
     @Override
-    public AnimationSlide getResult() {
+    public BaseSlide getResult() {
         return result;
     }
 }
