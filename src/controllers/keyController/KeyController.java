@@ -19,7 +19,6 @@ public class KeyController extends KeyAdapter {
 	private Presentation presentation; // Commands are given to the presentation
 
 	public KeyController(Presentation presentation) {
-		super();
 		this.presentation = presentation;
 	}
 
