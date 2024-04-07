@@ -23,6 +23,21 @@ public class Slide implements BaseSlide {
 		this.items = items;
 	}
 
+	public Slide() {
+		items = new Vector<>();
+		this.title = "Default title";
+	}
+
+	public Slide(String title, Vector<SlideItem> items){
+		if (title.isEmpty()){
+			this.title = "Default title";
+		}
+		else {
+			this.title = title;
+		}
+		this.items = items;
+	}
+
 	// give the title of the slide
 	public String getTitle() {
 		return title;
@@ -45,20 +60,6 @@ public class Slide implements BaseSlide {
 	// give the size of the slide.Slide
 	public int getSize() {
 		return items.size();
-	}
-
-	public Slide() {
-		items = new Vector<>();
-	}
-
-	public Slide(String title, Vector<SlideItem> items){
-		if (title.isEmpty()){
-			this.title = "Default title";
-		}
-		else {
-			this.items = items;
-		}
-		this.title = title;
 	}
 
 	// Add a slide item

@@ -14,6 +14,10 @@ public class Invoker {
         this.command = command;
     }
 
+    public Command getCommand() {
+        return command;
+    }
+
     public Frame execute(Frame parent, Presentation presentation){
         return this.command.execute(parent, presentation);
     }

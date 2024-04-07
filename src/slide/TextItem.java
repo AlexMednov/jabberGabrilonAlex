@@ -22,9 +22,17 @@ public class TextItem extends SlideItem {
 	private static final String EMPTY_TEXT = "No Text Given";
 
 	// a textitem of level level, with the text string
-	public TextItem(int level, String string) {
+	public TextItem(int level, String text) {
 		super(level);
-		this.text = string;
+		if (level<0){
+			throw new IllegalArgumentException("Invalid level");
+		}
+		if (text.isEmpty()){
+			this.text = "No Text Given";
+		}
+		else {
+			this.text = text;
+		}
 	}
 
 	// an empty textitem

@@ -14,6 +14,16 @@ public class Style {
 	int leading;
 
 	public Style(int indent, Color color, int points, int leading) {
+		if (indent < 0){
+			throw new IllegalArgumentException("Invalid indent");
+		}
+		if (points < 0){
+			throw new IllegalArgumentException("Invalid points");
+		}
+		if (leading < 0){
+			throw new IllegalArgumentException("Invalid leading");
+		}
+
 		this.indent = indent;
 		this.color = color;
 		fontSize = points;

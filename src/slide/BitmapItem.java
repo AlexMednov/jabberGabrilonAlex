@@ -14,21 +14,29 @@ import style.Style;
 
 public class BitmapItem extends SlideItem {
   private BufferedImage bufferedImage;
-  private String imageName;
+  private String path;
   
   protected static final String FILE = "File ";
   protected static final String NOTFOUND = " not found";
 
 // level is equal to item-level; name is the name of the file with the Image
-	public BitmapItem(int level, String name) {
+	public BitmapItem(int level, String path) {
 		super(level);
-		imageName = name;
+		this.path = path;
 		try {
-			bufferedImage = ImageIO.read(new File(imageName));
+			bufferedImage = ImageIO.read(new File(path));
 		}
 		catch (IOException e) {
-			System.err.println(FILE + imageName + NOTFOUND) ;
+			System.err.println(FILE + path + NOTFOUND) ;
 		}
+	}
+
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
 	}
 
 	// An empty bitmap-item
@@ -48,18 +56,18 @@ public class BitmapItem extends SlideItem {
 
 	public String getImageName()
 	{
-		return imageName;
+		return this.path;
 	}
 
 	public void setImageName(String imageName)
 	{
-		this.imageName = imageName;
+		this.path = imageName;
 	}
 
 
 // give the filename of the image
 	public String getName() {
-		return imageName;
+		return this.path;
 	}
 
 // give the  bounding box of the image
@@ -80,6 +88,6 @@ public class BitmapItem extends SlideItem {
 	}
 
 	public String toString() {
-		return "slide.BitmapItem[" + getLevel() + "," + imageName + "]";
+		return "slide.BitmapItem[" + getLevel() + "," + this.path + "]";
 	}
 }
