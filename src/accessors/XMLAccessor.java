@@ -10,7 +10,6 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-import accessors.Accessor;
 import org.xml.sax.SAXException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -145,7 +144,7 @@ public class XMLAccessor extends Accessor {
 				else {
 					if (slideItem instanceof BitmapItem) {
 						out.print("\"image\" level=\"" + slideItem.getLevel() + "\">");
-						out.print( ( (BitmapItem) slideItem).getName());
+						out.print( ( (BitmapItem) slideItem).getPath());
 					}
 					else {
 						System.out.println("Ignoring " + slideItem);

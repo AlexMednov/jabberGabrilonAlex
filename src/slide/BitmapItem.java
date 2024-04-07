@@ -1,7 +1,5 @@
 package slide;
 
-import slide.SlideItem;
-
 import java.awt.Rectangle;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
@@ -14,40 +12,26 @@ import java.io.IOException;
 
 import style.Style;
 
-
-/** <p>De klasse voor een Bitmap item</p>
- * <p>Bitmap items have the responsibility to draw themselves.</p>
- * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
- * @version 1.1 2002/12/17 Gert Florijn
- * @version 1.2 2003/11/19 Sylvia Stuurman
- * @version 1.3 2004/08/17 Sylvia Stuurman
- * @version 1.4 2007/07/16 Sylvia Stuurman
- * @version 1.5 2010/03/03 Sylvia Stuurman
- * @version 1.6 2014/05/16 Sylvia Stuurman
-*/
-
 public class BitmapItem extends SlideItem {
   private BufferedImage bufferedImage;
-  private String imageName;
+  private String path;
   
   protected static final String FILE = "File ";
   protected static final String NOTFOUND = " not found";
 
 // level is equal to item-level; name is the name of the file with the Image
-	public BitmapItem(int level, String name) {
+	public BitmapItem(int level, String path) throws IllegalArgumentException {
 		super(level);
-		imageName = name;
+		if (level<0){
+			throw new IllegalArgumentException("Invalid level");
+		}
+		this.path = path;
 		try {
-			bufferedImage = ImageIO.read(new File(imageName));
+			bufferedImage = ImageIO.read(new File(this.path));
 		}
 		catch (IOException e) {
-			System.err.println(FILE + imageName + NOTFOUND) ;
+			System.err.println(FILE + this.path + NOTFOUND) ;
 		}
-	}
-
-	// An empty bitmap-item
-	public BitmapItem() {
-		this(0, null);
 	}
 
 	public BufferedImage getBufferedImage()
@@ -62,18 +46,18 @@ public class BitmapItem extends SlideItem {
 
 	public String getImageName()
 	{
-		return imageName;
+		return path;
 	}
 
 	public void setImageName(String imageName)
 	{
-		this.imageName = imageName;
+		this.path = imageName;
 	}
 
 
 // give the filename of the image
-	public String getName() {
-		return imageName;
+	public String getPath() {
+		return path;
 	}
 
 // give the  bounding box of the image
@@ -94,6 +78,6 @@ public class BitmapItem extends SlideItem {
 	}
 
 	public String toString() {
-		return "slide.BitmapItem[" + getLevel() + "," + imageName + "]";
+		return "slide.BitmapItem[" + getLevel() + "," + path + "]";
 	}
 }
