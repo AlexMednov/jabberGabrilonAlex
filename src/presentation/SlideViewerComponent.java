@@ -41,17 +41,11 @@ public class SlideViewerComponent extends JComponent {
 	private static final int YPOS = 20;
 
 	public SlideViewerComponent(Presentation presentation, JFrame frame) {
-		super();
 		setBackground(BGCOLOR); 
 		this.presentation = presentation;
 		this.frame = frame;
 		labelFont = new Font(FONT_NAME, FONT_STYLE, FONT_HEIGHT);
 	}
-
-	public Dimension getPreferredSize() {
-		return new Dimension(Slide.WIDTH, Slide.HEIGHT);
-	}
-
 	public Slide getSlide()
 	{
 		return slide;
@@ -101,6 +95,10 @@ public class SlideViewerComponent extends JComponent {
 		this.slide = slide;
 		repaint();
 		frame.setTitle(presentation.getTitle());
+	}
+
+	public Dimension getPreferredSize() {
+		return new Dimension(Slide.WIDTH, Slide.HEIGHT);
 	}
 
 // draw the slide

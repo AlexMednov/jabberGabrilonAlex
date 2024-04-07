@@ -17,21 +17,6 @@ public class AnimationSlide implements BaseSlide {
         this.items = items;
     }
 
-    @Override
-    public void draw(Graphics graphics, Rectangle rectangle, ImageObserver imageObserver) {
-
-    }
-
-    @Override
-    public void append(int level, String message) {
-
-    }
-
-    @Override
-    public void append(SlideItem anItem) {
-
-    }
-
     public Vector<SlideItem> getItems() {
         return items;
     }
@@ -55,5 +40,19 @@ public class AnimationSlide implements BaseSlide {
     public void setAnimationPath(String animationPath) {
         this.animationPath = animationPath;
     }
-    //THIS IS NOTE DONE IT NEEDS TO BE IMPLEMENTED WITH ACTUAL CODE!!!!
+
+    @Override
+    public void draw(Graphics graphics, Rectangle rectangle, ImageObserver imageObserver) {
+
+    }
+
+    @Override
+    public void append(int level, String message) {
+
+    }
+
+    @Override
+    public void append(SlideItem anItem) {
+
+    }
 }
