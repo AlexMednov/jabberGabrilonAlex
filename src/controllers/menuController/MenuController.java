@@ -28,40 +28,21 @@ import javax.swing.JOptionPane;
  * @version 1.6 2014/05/16 Sylvia Stuurman
  */
 public class MenuController extends MenuBar {
-	
+
 	private Frame parent; // the frame, only used as parent for the Dialogs
 	private Presentation presentation; // Commands are given to the presentation
-	
+
 	private static final long serialVersionUID = 227L;
-	
-	protected static final String ABOUT = "About";
-	protected static final String FILE = "File";
-	protected static final String EXIT = "Exit";
-	protected static final String GOTO = "Go to";
-	protected static final String HELP = "Help";
-	protected static final String NEW = "New";
-	protected static final String NEXT = "Next";
-	protected static final String PAGENR = "Page number?";
-	protected static final String PREV = "Prev";
-	protected static final String SAVE = "Save";
-	protected static final String VIEW = "View";
-	
-	protected static final String TESTFILE = "test.xml";
-	protected static final String SAVEFILE = "dump.xml";
-	
-	protected static final String IOEX = "IO Exception: ";
-	protected static final String LOADERR = "Load Error";
-	protected static final String SAVEERR = "Save Error";
 
 	public MenuController(Frame frame, Presentation pres) {
-		parent = frame;
-		presentation = pres;
+		this.parent = frame;
+		this.presentation = pres;
 
 		Invoker invoker = new Invoker();
 		Reciever reciever = new Reciever();
 
 		MenuItem menuItem;
-		Menu fileMenu = new Menu(FILE);
+		Menu fileMenu = new Menu(MenuControllerConstants.FILE.getValue());
 
 		//Open file
 		menuItem = mkMenuItem(MenuControllerConstants.OPEN.getValue());
@@ -86,7 +67,8 @@ public class MenuController extends MenuBar {
 		});
 
 		//Save file
-		fileMenu.add(menuItem = mkMenuItem(SAVE));
+		menuItem = mkMenuItem(MenuControllerConstants.SAVE.getValue());
+		fileMenu.add(menuItem);
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Command save = new Save(reciever, MenuControllerConstants.DEFPATH.getValue());
@@ -97,7 +79,8 @@ public class MenuController extends MenuBar {
 
 		//Exit file
 		fileMenu.addSeparator();
-		fileMenu.add(menuItem = mkMenuItem(EXIT));
+		menuItem = mkMenuItem(MenuControllerConstants.EXIT.getValue());
+		fileMenu.add(menuItem);
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
 				Command exit = new Exit(reciever);
@@ -110,10 +93,11 @@ public class MenuController extends MenuBar {
 		add(fileMenu);
 
 		//Adding another dropdown
-		Menu viewMenu = new Menu(VIEW);
+		Menu viewMenu = new Menu(MenuControllerConstants.VIEW.getValue());
 
 		//Next slide
-		viewMenu.add(menuItem = mkMenuItem(NEXT));
+		menuItem = mkMenuItem(MenuControllerConstants.NEXT.getValue());
+		viewMenu.add(menuItem);
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
 				Command next = new Next(reciever);
@@ -123,7 +107,8 @@ public class MenuController extends MenuBar {
 		});
 
 		//Previous slide
-		viewMenu.add(menuItem = mkMenuItem(PREV));
+		menuItem = mkMenuItem(MenuControllerConstants.PREV.getValue());
+		viewMenu.add(menuItem);
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
 				Command prev = new Previous(reciever);
@@ -133,7 +118,8 @@ public class MenuController extends MenuBar {
 		});
 
 		//Go to slide
-		viewMenu.add(menuItem = mkMenuItem(GOTO));
+		menuItem = mkMenuItem(MenuControllerConstants.GOTO.getValue());
+		viewMenu.add(menuItem);
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
 				Command goTo = new GoTo(reciever);
@@ -146,8 +132,9 @@ public class MenuController extends MenuBar {
 		add(viewMenu);
 
 		//Help box
-		Menu helpMenu = new Menu(HELP);
-		helpMenu.add(menuItem = mkMenuItem(ABOUT));
+		Menu helpMenu = new Menu(MenuControllerConstants.HELP.getValue());
+		menuItem = mkMenuItem(MenuControllerConstants.ABOUT.getValue());
+		helpMenu.add(menuItem);
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
 				Command help = new Help(reciever);
@@ -158,7 +145,7 @@ public class MenuController extends MenuBar {
 		setHelpMenu(helpMenu);		// needed for portability (Motif, etc.).
 	}
 
-// create a menu item
+	// create a menu item
 	public MenuItem mkMenuItem(String name) {
 		return new MenuItem(name, new MenuShortcut(name.charAt(0)));
 	}

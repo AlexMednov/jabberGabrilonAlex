@@ -26,12 +26,10 @@ public class Presentation {
 
 	public Presentation()
 	{
-		super();
 		clear();
 	}
 
 	public Presentation(SlideViewerComponent slideViewerComponent) {
-		super();
 		this.slideViewComponent = slideViewerComponent;
 		clear();
 	}
@@ -76,6 +74,19 @@ public class Presentation {
 		this.slideViewComponent = slideViewComponent;
 	}
 
+	// Get a slide with a certain slidenumber
+	public Slide getSlide(int number) {
+		if (0 > number || number >= getSize()){
+			return null;
+		}
+		return showList.get(number);
+	}
+
+	// Give the current slide
+	public Slide getCurrentSlide() {
+		return getSlide(currentSlideNumber);
+	}
+
 	public int getSize() {
 		return showList.size();
 	}
@@ -107,9 +118,9 @@ public class Presentation {
 
 	// go to the previous slide unless your at the beginning of the presentation
 	public void prevSlide() {
-		if (currentSlideNumber > 0) {
+		if (0 < currentSlideNumber) {
 			setSlideNumber(currentSlideNumber - 1);
-	    }
+		}
 	}
 
 	// go to the next slide unless your at the end of the presentation.
@@ -128,19 +139,6 @@ public class Presentation {
 	// Add a slide to the presentation
 	public void append(BaseSlide slide) {
 		showList.add((Slide) slide);
-	}
-
-	// Get a slide with a certain slidenumber
-	public Slide getSlide(int number) {
-		if (number < 0 || number >= getSize()){
-			return null;
-	    }
-			return showList.get(number);
-	}
-
-	// Give the current slide
-	public Slide getCurrentSlide() {
-		return getSlide(currentSlideNumber);
 	}
 
 	public void exit(int n) {
