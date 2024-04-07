@@ -11,28 +11,28 @@ class StyleTest {
     void creatingStyleTest_expectNoException_comparingIndent(){
         Style style = new Style(10, Color.blue, 10, 10);
 
-        assertEquals(style.getIndent(), 10);
+        assertEquals(10, style.getIndent());
     }
 
     @Test
     void creatingStyleTest_expectNoException_comparingColor(){
         Style style = new Style(10, Color.blue, 10, 10);
 
-        assertEquals(style.getColor(), Color.blue);
+        assertEquals(Color.blue, style.getColor());
     }
 
     @Test
     void creatingStyleTest_expectNoException_comparingFontSize(){
         Style style = new Style(10, Color.blue, 15, 10);
 
-        assertEquals(style.getFontSize(), 15);
+        assertEquals(15, style.getFontSize());
     }
 
     @Test
     void creatingStyleTest_expectNoException_comparingLeading(){
         Style style = new Style(10, Color.blue, 10, 20);
 
-        assertEquals(style.getLeading(), 20);
+        assertEquals(20, style.getLeading());
     }
 
     @Test

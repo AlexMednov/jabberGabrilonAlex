@@ -2,7 +2,6 @@ package slide;
 
 import java.awt.*;
 import java.awt.image.ImageObserver;
-import java.util.Vector;
 
 public interface BaseSlide {
     public abstract void draw(Graphics graphics, Rectangle rectangle, ImageObserver imageObserver);
