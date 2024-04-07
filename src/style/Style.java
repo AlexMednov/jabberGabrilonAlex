@@ -3,19 +3,6 @@ package style;
 import java.awt.Color;
 import java.awt.Font;
 
-/** <p>style.Style is for Indent, Color, Font and Leading.</p>
- * <p>Direct relation between style-number and item-level:
- * in slide.Slide style if fetched for an item
- * with style-number as item-level.</p>
- * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
- * @version 1.1 2002/12/17 Gert Florijn
- * @version 1.2 2003/11/19 Sylvia Stuurman
- * @version 1.3 2004/08/17 Sylvia Stuurman
- * @version 1.4 2007/07/16 Sylvia Stuurman
- * @version 1.5 2010/03/03 Sylvia Stuurman
- * @version 1.6 2014/05/16 Sylvia Stuurman
- */
-
 public class Style {
 	private static Style[] styles; // de styles
 	
@@ -26,18 +13,21 @@ public class Style {
 	private int fontSize;
 	private int leading;
 
-	public Style(int indent, Color color, int fontSize, int leading) throws IllegalStateException{
-		if (0 > indent || 0 > fontSize || 0 > leading){
-			throw new IllegalStateException("Invalid indent/font size/leading");
+	public Style(int indent, Color color, int fontSize, int leading) throws IllegalArgumentException{
+		if (0 > indent){
+			throw new IllegalArgumentException("Invalid indent");
+		}
+		if (0 > fontSize){
+			throw new IllegalArgumentException("Invalid font size");
+		}
+		if (0 > leading){
+			throw new IllegalArgumentException("Invalid leading");
 		}
 		this.indent = indent;
 		this.color = color;
-<<<<<<< Updated upstream
-		font = new Font(FONTNAME, Font.BOLD, fontSize=points);
-=======
+		this.font = new Font(FONTNAME, Font.BOLD, fontSize);
 		this.fontSize = fontSize;
 		this.font = new Font(FONTNAME, Font.BOLD, this.fontSize);
->>>>>>> Stashed changes
 		this.leading = leading;
 	}
 

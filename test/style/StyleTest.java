@@ -38,7 +38,28 @@ class StyleTest {
     @Test
     void creatingStyleTest_expectException_invalidIndent() throws IllegalArgumentException{
         assertThrows(IllegalArgumentException.class, ()->{
-            Style style = new Style(-1, Color.blue, 10, 20);
+            Style style = new Style(-10, Color.blue, 10, 20);
+        });
+    }
+
+    @Test
+    void creatingStyleTest_expectException_invalidFontSize() throws IllegalArgumentException{
+        assertThrows(IllegalArgumentException.class, ()->{
+            Style style = new Style(10, Color.blue, -10, 20);
+        });
+    }
+
+    @Test
+    void creatingStyleTest_expectException_invalidLeading() throws IllegalArgumentException{
+        assertThrows(IllegalArgumentException.class, ()->{
+            Style style = new Style(10, Color.blue, 10, -20);
+        });
+    }
+
+    @Test
+    void creatingStyleTest_expectNoException_validParamsBorder(){
+        assertDoesNotThrow( ()->{
+            Style style = new Style(0, Color.blue, 0, 0);
         });
     }
 }
