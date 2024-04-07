@@ -1,11 +1,9 @@
 package accessors;
 
 import builder.BaselineBuilder;
-import slide.BitmapItem;
 import slide.Factory.BitmapItemCreator;
 import slide.Factory.SlideItemCreator;
 import slide.Factory.TextItemCreator;
-import slide.Slide;
 import presentation.Presentation;
 import slide.SlideItem;
 import style.enums.Level;
