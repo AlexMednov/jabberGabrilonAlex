@@ -4,9 +4,11 @@ import slide.SlideItem;
 import slide.TextItem;
 
 public class TextItemCreator extends SlideItemCreator {
+    public TextItemCreator() {
+    }
+
     @Override
-    public SlideItem createSlideItem() {
-        // Default level and text for TextItem
-        return new TextItem(0, null);
+    public SlideItem createSlideItem(int level, String secondParam) {
+        return new TextItem(level, secondParam);
     }
 }

@@ -4,10 +4,12 @@ import slide.SlideItem;
 import slide.BitmapItem;
 
 public class BitmapItemCreator extends SlideItemCreator {
-        @Override
-        public SlideItem createSlideItem()
-        {
-            // Default level for BitmapItem
-            return new BitmapItem(0, null);
-        }
+    public BitmapItemCreator() {
+    }
+
+    @Override
+    public SlideItem createSlideItem(int level, String secondParam)
+    {
+        return new BitmapItem(level, secondParam);
+    }
 }

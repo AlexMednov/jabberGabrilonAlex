@@ -35,7 +35,7 @@ public class TextItem extends SlideItem {
 	// a textitem of level level, with the text string
 	public TextItem(int level, String string) {
 		super(level);
-		text = string;
+		this.text = string;
 	}
 
 	// an empty textitem
@@ -45,7 +45,7 @@ public class TextItem extends SlideItem {
 
 	// give the text
 	public String getText() {
-		return text == null ? "" : text;
+		return null == text ? "" : text;
 	}
 
 	public void setText(String text)

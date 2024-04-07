@@ -62,7 +62,12 @@ public class Slide implements BaseSlide {
 	}
 
 	public Slide(String title, Vector<SlideItem> items){
-		this.items = items;
+		if (title.isEmpty()){
+			this.title = "Default title";
+		}
+		else {
+			this.items = items;
+		}
 		this.title = title;
 	}
 
