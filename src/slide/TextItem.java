@@ -16,26 +16,23 @@ import java.text.AttributedString;
 import java.util.List;
 import java.util.ArrayList;
 
-/** <p>A tekst item.</p>
- * <p>A slide.TextItem has drawingfunctionality.</p>
- * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
- * @version 1.1 2002/12/17 Gert Florijn
- * @version 1.2 2003/11/19 Sylvia Stuurman
- * @version 1.3 2004/08/17 Sylvia Stuurman
- * @version 1.4 2007/07/16 Sylvia Stuurman
- * @version 1.5 2010/03/03 Sylvia Stuurman
- * @version 1.6 2014/05/16 Sylvia Stuurman
- */
-
 public class TextItem extends SlideItem {
 	private String text;
 	
 	private static final String EMPTY_TEXT = "No Text Given";
 
 	// a textitem of level level, with the text string
-	public TextItem(int level, String string) {
+	public TextItem(int level, String text) throws IllegalArgumentException{
 		super(level);
-		this.text = string;
+		if (level<0){
+			throw new IllegalArgumentException("Invalid level");
+		}
+		if (text.isEmpty()){
+			this.text = EMPTY_TEXT;
+		}
+		else {
+			this.text = text;
+		}
 	}
 
 	// an empty textitem
