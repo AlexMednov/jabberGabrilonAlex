@@ -20,16 +20,24 @@ public class Style {
 	private static Style[] styles; // de styles
 	
 	private static final String FONTNAME = "Helvetica";
-	int indent;
-	Color color;
-	Font font;
-	int fontSize;
-	int leading;
+	private int indent;
+	private Color color;
+	private Font font;
+	private int fontSize;
+	private int leading;
 
-	public Style(int indent, Color color, int points, int leading) {
+	public Style(int indent, Color color, int fontSize, int leading) throws IllegalStateException{
+		if (0 > indent || 0 > fontSize || 0 > leading){
+			throw new IllegalStateException("Invalid indent/font size/leading");
+		}
 		this.indent = indent;
 		this.color = color;
+<<<<<<< Updated upstream
 		font = new Font(FONTNAME, Font.BOLD, fontSize=points);
+=======
+		this.fontSize = fontSize;
+		this.font = new Font(FONTNAME, Font.BOLD, this.fontSize);
+>>>>>>> Stashed changes
 		this.leading = leading;
 	}
 
@@ -42,7 +50,7 @@ public class Style {
 	}
 
 	public int getIndent() {
-		return indent;
+		return this.indent;
 	}
 
 	public void setIndent(int indent) {
