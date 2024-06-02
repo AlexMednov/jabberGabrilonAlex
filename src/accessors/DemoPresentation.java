@@ -9,10 +9,11 @@ import presentation.Presentation;
 import slide.SlideItem;
 import style.enums.*;
 
+import java.io.IOException;
 import java.util.Vector;
 
 class DemoPresentation extends Accessor {
-	public void loadFile(Presentation presentation, String unusedFilename) {
+	public void loadFile(Presentation presentation, String unusedFilename) throws IOException {
 		BaselineBuilder baselineBuilder = new BaselineBuilder();
 		Director director = new Director(baselineBuilder);
 

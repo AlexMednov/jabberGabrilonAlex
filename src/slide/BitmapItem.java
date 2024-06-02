@@ -15,55 +15,27 @@ import style.Style;
 public class BitmapItem extends SlideItem {
   private BufferedImage bufferedImage;
   private String path;
-  
-  protected static final String FILE = "File ";
-  protected static final String NOTFOUND = " not found";
 
 // level is equal to item-level; name is the name of the file with the Image
-	public BitmapItem(int level, String path) {
+	public BitmapItem(int level, String path) throws IOException {
 		super(level);
 		this.path = path;
-		try {
-			bufferedImage = ImageIO.read(new File(path));
-		}
-		catch (IOException e) {
-			System.err.println(FILE + path + NOTFOUND) ;
-		}
+		bufferedImage = ImageIO.read(new File(path));
 	}
 
 	public String getPath() {
 		return path;
 	}
 
-	public void setPath(String path) {
+	public void setPathAndBufferedImage(String path) throws IOException {
+		this.bufferedImage = ImageIO.read(new File(path));
 		this.path = path;
-	}
-
-	// An empty bitmap-item
-	public BitmapItem() {
-		this(0, null);
 	}
 
 	public BufferedImage getBufferedImage()
 	{
 		return bufferedImage;
 	}
-
-	public void setBufferedImage(BufferedImage bufferedImage)
-	{
-		this.bufferedImage = bufferedImage;
-	}
-
-	public String getImageName()
-	{
-		return this.path;
-	}
-
-	public void setImageName(String imageName)
-	{
-		this.path = imageName;
-	}
-
 
 // give the filename of the image
 	public String getName() {
