@@ -5,6 +5,7 @@ import slide.Factory.SlideItemCreator;
 import slide.Factory.TextItemCreator;
 import style.enums.Level;
 
+import java.io.IOException;
 import java.util.Vector;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -45,7 +46,7 @@ class SlideTest {
     }
 
     @Test
-    void creatingNoneEmptySlide_expectNoException_comparingItems1(){
+    void creatingNoneEmptySlide_expectNoException_comparingItems1() throws IOException {
         SlideItemCreator textItemCreator = new TextItemCreator();
 
         Vector<SlideItem> items = new Vector<>();
@@ -58,7 +59,7 @@ class SlideTest {
     }
 
     @Test
-    void creatingNoneEmptySlide_expectNoException_comparingItems2(){
+    void creatingNoneEmptySlide_expectNoException_comparingItems2() throws IOException {
         SlideItemCreator textItemCreator = new TextItemCreator();
 
         Vector<SlideItem> items = new Vector<>();
