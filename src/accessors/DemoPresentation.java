@@ -79,7 +79,7 @@ class DemoPresentation extends Accessor {
 
 		slideItems = new Vector<>();
 		slideItems.add(textItemCreator.createSlideItem(Level.MAX.getValue(), "Thank you for your attention!!"));
-		slideItems.add(bitmapItemCreator.createSlideItem(Level.MAX.getValue(), "img/finalMeme.jpg"));
+		slideItems.add(bitmapItemCreator.createSlideItem(Level.MAX.getValue(), "img/dog.jpg"));
 		//Slide items are created
 
 		director.make("Final slide", slideItems);

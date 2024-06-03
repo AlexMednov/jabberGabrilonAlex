@@ -37,9 +37,6 @@ public class BitmapItem extends SlideItem {
 		return bufferedImage;
 	}
 
-	//Need to test buffered image, need to update geting name, need to test rectangle and to string and gering name
-
-
 // give the filename of the image
 	public String getName() {
 		String[] splitPath = this.path.split("/");
