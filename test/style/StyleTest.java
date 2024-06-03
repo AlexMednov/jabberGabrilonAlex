@@ -62,4 +62,47 @@ class StyleTest {
             Style style = new Style(0, Color.blue, 0, 0);
         });
     }
+
+    @Test
+    void stringifyingStyle_expectNoException_validCreation(){
+        Style style = new Style(10, Color.blue, 10, 10);
+
+        assertEquals("[10,java.awt.Color[r=0,g=0,b=255]; 10 on 10]", style.toString());
+    }
+
+    @Test
+    void stringifyingStyle_expectNoException_validCreation2(){
+        Style style = new Style(1, Color.red, 1, 20);
+
+        assertEquals("[1,java.awt.Color[r=255,g=0,b=0]; 1 on 20]", style.toString());
+    }
+
+    @Test
+    void settingDifferentLeading_expectNoException_validCreation(){
+        Style style = new Style(1, Color.red, 1, 20);
+
+        style.setLeading(1);
+
+        assertEquals(1, style.getLeading());
+    }
+
+    @Test
+    void settingDifferentLeading_expectNoException_validCreation2(){
+        Style style = new Style(1, Color.red, 1, 12);
+
+        style.setLeading(13);
+
+        assertEquals(13, style.getLeading());
+    }
+
+    @Test
+    void settingInvalidLeading_expectIllegalArgument_validCreation(){
+        Style style = new Style(1, Color.red, 1, 12);
+
+        assertThrows(IllegalArgumentException.class, ()->{
+            style.setLeading(-1);
+        });
+    }
+
+    //make sure all functions are tested, not sure of the extent at this moment
 }

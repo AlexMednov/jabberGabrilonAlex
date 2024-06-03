@@ -7,28 +7,19 @@ public class Style {
 	private static Style[] styles; // de styles
 	
 	private static final String FONTNAME = "Helvetica";
-	int indent;
-	Color color;
-	Font font;
-	int fontSize;
-	int leading;
+	private int indent;
+	private Color color;
+	private Font font;
+	private int fontSize;
+	private int leading;
 
-	public Style(int indent, Color color, int points, int leading) {
-		if (indent < 0){
-			throw new IllegalArgumentException("Invalid indent");
-		}
-		if (points < 0){
-			throw new IllegalArgumentException("Invalid points");
-		}
-		if (leading < 0){
-			throw new IllegalArgumentException("Invalid leading");
-		}
+	public Style(int indent, Color color, int fontSize, int leading) {
+		setIndent(indent);
+		setFontSize(fontSize);
+		setLeading(leading);
 
-		this.indent = indent;
 		this.color = color;
-		fontSize = points;
-		font = new Font(FONTNAME, Font.BOLD, fontSize);
-		this.leading = leading;
+		this.font = new Font(FONTNAME, Font.BOLD, fontSize);
 	}
 
 	public static Style getStyle(int level) {
@@ -44,6 +35,9 @@ public class Style {
 	}
 
 	public void setIndent(int indent) {
+		if (indent<0){
+			throw new IllegalArgumentException("Invalid indent");
+		}
 		this.indent = indent;
 	}
 
@@ -68,6 +62,9 @@ public class Style {
 	}
 
 	public void setFontSize(int fontSize) {
+		if (fontSize<1){
+			throw new IllegalArgumentException("Invalid font");
+		}
 		this.fontSize = fontSize;
 	}
 
@@ -76,6 +73,9 @@ public class Style {
 	}
 
 	public void setLeading(int leading) {
+		if (leading<0){
+			throw new IllegalArgumentException("Invalid leading");
+		}
 		this.leading = leading;
 	}
 
