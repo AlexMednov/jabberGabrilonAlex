@@ -1,7 +1,7 @@
 package style.enums;
 
 public enum Leading {
-    NONE(0),
+    NONE(1),
     LOW(10),
     MED(20),
     HIGH(30);

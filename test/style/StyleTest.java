@@ -1,6 +1,9 @@
 package style;
 
 import org.junit.jupiter.api.Test;
+import style.enums.Indent;
+import style.enums.Leading;
+import style.enums.Level;
 
 import java.awt.*;
 
@@ -9,28 +12,28 @@ import static org.junit.jupiter.api.Assertions.*;
 class StyleTest {
     @Test
     void creatingStyleTest_expectNoException_comparingIndent(){
-        Style style = new Style(10, Color.blue, 10, 10);
+        Style style = new Style(Indent.LOW.getValue(), Color.blue, 10, Leading.LOW.getValue());
 
-        assertEquals(10, style.getIndent());
+        assertEquals(20, style.getIndent());
     }
 
     @Test
     void creatingStyleTest_expectNoException_comparingColor(){
-        Style style = new Style(10, Color.blue, 10, 10);
+        Style style = new Style(Indent.MED.getValue(), Color.red, 10, Leading.MED.getValue());
 
-        assertEquals(Color.blue, style.getColor());
+        assertEquals(Color.red, style.getColor());
     }
 
     @Test
     void creatingStyleTest_expectNoException_comparingFontSize(){
-        Style style = new Style(10, Color.blue, 15, 10);
+        Style style = new Style(Indent.HIGH.getValue(), Color.green, 15, Leading.HIGH.getValue());
 
         assertEquals(15, style.getFontSize());
     }
 
     @Test
     void creatingStyleTest_expectNoException_comparingLeading(){
-        Style style = new Style(10, Color.blue, 10, 20);
+        Style style = new Style(Indent.MAX.getValue(), Color.yellow, 10, Leading.MED.getValue());
 
         assertEquals(20, style.getLeading());
     }
@@ -38,14 +41,14 @@ class StyleTest {
     @Test
     void creatingStyleTest_expectException_invalidIndent() throws IllegalArgumentException{
         assertThrows(IllegalArgumentException.class, ()->{
-            Style style = new Style(-10, Color.blue, 10, 20);
+            Style style = new Style(-10, Color.blue, 10, Leading.MED.getValue());
         });
     }
 
     @Test
     void creatingStyleTest_expectException_invalidFontSize() throws IllegalArgumentException{
         assertThrows(IllegalArgumentException.class, ()->{
-            Style style = new Style(10, Color.blue, -10, 20);
+            Style style = new Style(10, Color.blue, -10, Leading.MED.getValue());
         });
     }
 
@@ -59,7 +62,7 @@ class StyleTest {
     @Test
     void creatingStyleTest_expectNoException_validParamsBorder(){
         assertDoesNotThrow( ()->{
-            Style style = new Style(0, Color.blue, 0, 0);
+            Style style = new Style(1, Color.blue, 1, 1);
         });
     }
 
@@ -104,5 +107,48 @@ class StyleTest {
         });
     }
 
-    //make sure all functions are tested, not sure of the extent at this moment
+    @Test
+    void gettingStylesCheckingLeading_expectNoException_validCreationLevel1(){
+        Style.createStyles();
+
+        Style styleLevel1 = new Style(20, Color.blue,  40, 10);
+
+        assertEquals(styleLevel1.getLeading(), Style.getStyle(1).getLeading());
+    }
+
+    @Test
+    void gettingStylesCheckingIndent_expectNoException_validCreationLevel1(){
+        Style.createStyles();
+
+        Style styleLevel1 = new Style(20, Color.blue,  40, 10);
+
+        assertEquals(styleLevel1.getIndent(), Style.getStyle(1).getIndent());
+    }
+
+    @Test
+    void gettingStylesCheckingColor_expectNoException_validCreationLevel1(){
+        Style.createStyles();
+
+        Style styleLevel1 = new Style(20, Color.blue,  40, 10);
+
+        assertEquals(styleLevel1.getColor(), Style.getStyle(Level.BASE.getValue()).getColor());
+    }
+
+    @Test
+    void gettingStylesCheckingLeading_expectNoException_validCreationLevel2(){
+        Style.createStyles();
+
+        Style styleLevel1 = new Style(50, Color.black, 36, 10);
+
+        assertEquals(styleLevel1.getLeading(), Style.getStyle(Level.LOW.getValue()).getLeading());
+    }
+
+    @Test
+    void gettingStylesCheckingLeading_expectNoException_validCreationLevel3(){
+        Style.createStyles();
+
+        Style styleLevel1 = new Style(70, Color.black, 30, 10);
+
+        assertEquals(styleLevel1.getLeading(), Style.getStyle(Level.MED.getValue()).getLeading());
+    }
 }
