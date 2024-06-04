@@ -15,14 +15,6 @@ public class Slide implements BaseSlide {
 
 	private Vector<SlideItem> items; // slide items are saved in a Vector
 
-	public Vector<SlideItem> getItems() {
-		return items;
-	}
-
-	public void setItems(Vector<SlideItem> items) {
-		this.items = items;
-	}
-
 	public Slide() {
 		items = new Vector<>();
 		this.title = "Default title";
@@ -58,14 +50,14 @@ public class Slide implements BaseSlide {
 	}
 
 	// give the size of the slide.Slide
-	public int getSize() {
+	public int getNumberOfItems() {
 		return items.size();
 	}
 
 	// Add a slide item
 	@Override
-	public void append(SlideItem anItem) {
-		items.addElement(anItem);
+	public void append(SlideItem item) {
+		items.addElement(item);
 	}
 
 	// Create slide.TextItem of String, and add the slide.TextItem
@@ -84,7 +76,7 @@ public class Slide implements BaseSlide {
 	    Style style = Style.getStyle(slideItem.getLevel());
 	    slideItem.draw(rectangle.x, y, scale, graphics, style, imageObserver);
 	    y += slideItem.getBoundingBox(graphics, imageObserver, scale, style).height;
-	    for (int number=0; number<getSize(); number++) {
+	    for (int number = 0; number< getNumberOfItems(); number++) {
 	      slideItem = getSlideItems().elementAt(number);
 	      style = Style.getStyle(slideItem.getLevel());
 	      slideItem.draw(rectangle.x, y, scale, graphics, style, imageObserver);

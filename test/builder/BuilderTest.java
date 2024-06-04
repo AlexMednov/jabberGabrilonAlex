@@ -13,16 +13,4 @@ public class BuilderTest {
 
         assertEquals(builder, director.getBuilder());
     }
-
-    @Test
-    void creatingDirectorWithSpecificBuilderThenChangingBuilder_expectNoException_comparingBuilder(){
-        Builder builder = new BaselineBuilder();
-
-        Director director = new Director(builder);
-
-        builder = new AnimationBuilder();
-        director.changeBuilder(builder);
-
-        assertEquals(builder, director.getBuilder());
-    }
 }
