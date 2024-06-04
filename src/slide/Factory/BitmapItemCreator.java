@@ -10,7 +10,7 @@ public class BitmapItemCreator extends SlideItemCreator {
     }
 
     @Override
-    public SlideItem createSlideItem(int level, String secondParam) throws IOException {
-        return new BitmapItem(level, secondParam);
+    public SlideItem createSlideItem(int level, String text) throws IOException {
+        return new BitmapItem(level, text);
     }
 }

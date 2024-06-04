@@ -8,7 +8,7 @@ public class TextItemCreator extends SlideItemCreator {
     }
 
     @Override
-    public SlideItem createSlideItem(int level, String secondParam) {
-        return new TextItem(level, secondParam);
+    public SlideItem createSlideItem(int level, String text) {
+        return new TextItem(level, text);
     }
 }
