@@ -42,7 +42,7 @@ public class TextItem extends SlideItem {
 
 	// give the text
 	public String getText() {
-		return null == text ? "" : text;
+		return this.text;
 	}
 
 	public void setText(String text)
@@ -78,9 +78,6 @@ public class TextItem extends SlideItem {
 
 		return new Rectangle((int) (myStyle.getIndent() * scale), 0, xsize, ysize);
 	}
-
-
-
 
 	// draw the item
 	public void draw(int x, int y, float scale, Graphics g, Style myStyle, ImageObserver o) {
