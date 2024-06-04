@@ -111,6 +111,6 @@ class TextItemTest {
 
         AttributedString attributedString = textItem.getAttributedString(style, 0.2f);
 
-        assertEquals("java.text.AttributedString@6c3f5566", attributedString.toString());
+        assertEquals("java.text", attributedString.getClass().getPackageName());
     }
 }
