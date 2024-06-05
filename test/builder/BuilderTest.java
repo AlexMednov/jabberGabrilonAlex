@@ -2,6 +2,7 @@ package builder;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import accessors.XMLAccessor;
 import org.junit.jupiter.api.Test;
 
 public class BuilderTest {
