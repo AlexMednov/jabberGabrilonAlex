@@ -73,6 +73,7 @@ public class SlideViewerComponent extends JComponent {
 		this.frame = frame;
 	}
 
+	//Updates and repaints presentation if there were changes to it
 	public void update(Presentation presentation, Slide slide) {
 		if (slide == null) {
 			repaint();

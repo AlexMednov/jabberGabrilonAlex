@@ -10,6 +10,7 @@ import style.Style;
 public class Slide implements BaseSlide {
 	public static final int WIDTH = 1200;
 	public static final int HEIGHT = 800;
+	//Default width and height for the
 
 	private String title; // title is saved separately
 
@@ -19,6 +20,7 @@ public class Slide implements BaseSlide {
 		items = new Vector<>();
 		this.title = "Default title";
 	}
+	//Constructor for empty slide to fill in later
 
 	public Slide(String title, Vector<SlideItem> items){
 		if (title.isEmpty()){
@@ -29,6 +31,7 @@ public class Slide implements BaseSlide {
 		}
 		this.items = items;
 	}
+	//Constructor for the slide with contents
 
 	// give the title of the slide
 	public String getTitle() {

@@ -28,6 +28,10 @@ public class MenuController extends MenuBar {
 
 		MenuItem menuItem;
 		Menu fileMenu = new Menu(MenuControllerConstants.FILE.getValue());
+		//Code bellow assigns listeners to specific actions that a user can perform
+		//This includes goTo, next, previous etc.
+		//The actions are performed via command pattern with receiver, receiving those actions
+
 
 		//Open file
 		menuItem = mkMenuItem(MenuControllerConstants.OPEN.getValue());
@@ -38,7 +42,7 @@ public class MenuController extends MenuBar {
 				invoker.setCommand(open);
 				parent = invoker.execute(parent, presentation);
 			}
-		} );
+		});
 
 		//New file
 		menuItem = mkMenuItem(MenuControllerConstants.NEW.getValue());

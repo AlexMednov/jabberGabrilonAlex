@@ -10,8 +10,9 @@ import javax.swing.JFrame;
 
 public class SlideViewerFrame extends JFrame {
 	private static final String JABTITLE = "Jabberpoint 1.6 - OU";
-	public static final int WIDTH = 1200;
-	public static final int HEIGHT = 800;
+	private static final int WIDTH = 1200;
+	private static final int HEIGHT = 800;
+	//default width and height of the slide
 	
 	public SlideViewerFrame(String title, Presentation presentation) {
 		super(title);

@@ -23,6 +23,7 @@ public class KeyController extends KeyAdapter {
 		this.presentation = presentation;
 	}
 
+	//Checks the key pressed and determines the outocome of the key pressed
 	public void keyPressed(KeyEvent keyEvent) {
 		switch(keyEvent.getKeyCode()) {
 			case KeyEvent.VK_PAGE_DOWN:

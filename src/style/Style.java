@@ -79,6 +79,7 @@ public class Style {
 		this.leading = leading;
 	}
 
+	//Creates set of default styles for the presentation to use
 	public static void createStyles() {
 		styles = new Style[6];
 		// The styles are fixed.
@@ -90,6 +91,7 @@ public class Style {
 		styles[5] = new Style(90, Color.blue, 40, 20);
 	}
 
+	//returns the style as a string
 	public String toString() {
 		return "["+ indent + "," + color + "; " + fontSize + " on " + leading +"]";
 	}

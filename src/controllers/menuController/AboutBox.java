@@ -18,4 +18,5 @@ public class AboutBox {
 				JOptionPane.INFORMATION_MESSAGE
 		);
 	}
+	//Help box for when help is clicked
 }

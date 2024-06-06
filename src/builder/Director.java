@@ -41,4 +41,7 @@ public class Director {
 
         return this.builder.getResult();
     }
+
+    //This file is responsible for directing the creation of the slides
+    //Possibilities for expansion of the creation with video and animation slides
 }
