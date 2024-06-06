@@ -21,7 +21,7 @@ public class TextItem extends SlideItem {
 	
 	private static final String EMPTY_TEXT = "No Text Given";
 
-	// a textitem of level level, with the text string
+	//Constructor for a text item with contents
 	public TextItem(int level, String text) {
 		super(level);
 		if (level<0){
@@ -35,12 +35,12 @@ public class TextItem extends SlideItem {
 		}
 	}
 
-	// an empty textitem
+	//Constructor for empty slide item
 	public TextItem() {
 		this(0, EMPTY_TEXT);
 	}
 
-	// give the text
+	//returns text of the text item
 	public String getText() {
 		return this.text;
 	}
@@ -58,7 +58,7 @@ public class TextItem extends SlideItem {
 	}
 
 
-	// give the bounding box of the item
+	//Returns the bounding box of the slide item
 	@Override
 	public Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale, Style myStyle) {
 		List<TextLayout> layouts = getLayouts(g, myStyle, scale);
@@ -97,6 +97,7 @@ public class TextItem extends SlideItem {
 		}
 	}
 
+	//Returns the layout of the text item
 	private List<TextLayout> getLayouts(Graphics g, Style s, float scale) {
 		List<TextLayout> layouts = new ArrayList<>();
 		AttributedString attrStr = getAttributedString(s, scale);
@@ -111,6 +112,7 @@ public class TextItem extends SlideItem {
     	return layouts;
 	}
 
+	//Returns the text item as a string
 	public String toString() {
 		return "slide.TextItem[" + getLevel()+","+getText()+"]";
 	}

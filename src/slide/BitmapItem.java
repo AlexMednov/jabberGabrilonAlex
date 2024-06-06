@@ -23,10 +23,12 @@ public class BitmapItem extends SlideItem {
 		bufferedImage = ImageIO.read(new File(path));
 	}
 
+	//Returns the path of the image loaded
 	public String getPath() {
 		return path;
 	}
 
+	//Sets path for the buffered image if it ever is to change
 	public void setPathAndBufferedImage(String path) throws IOException {
 		this.bufferedImage = ImageIO.read(new File(path));
 		this.path = path;
@@ -37,14 +39,14 @@ public class BitmapItem extends SlideItem {
 		return bufferedImage;
 	}
 
-// give the filename of the image
+	// give the filename of the image
 	public String getName() {
 		String[] splitPath = this.path.split("/");
 
 		return splitPath[splitPath.length-1];
 	}
 
-// give the  bounding box of the image
+	// give the  bounding box of the image
 	@Override
 	public Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale, Style myStyle) {
 		return new Rectangle((int) (myStyle.getIndent() * scale), 0,
@@ -53,7 +55,7 @@ public class BitmapItem extends SlideItem {
 				(int) (bufferedImage.getHeight(observer) * scale));
 	}
 
-// draw the image
+	// draws the bit map item
 	public void draw(int x, int y, float scale, Graphics g, Style myStyle, ImageObserver observer) {
 		int width = x + (int) (myStyle.getIndent() * scale);
 		int height = y + (int) (myStyle.getLeading() * scale);
@@ -61,6 +63,7 @@ public class BitmapItem extends SlideItem {
                 (int) (bufferedImage.getHeight(observer)*scale), observer);
 	}
 
+	//returns the content of the bit map as a string
 	public String toString() {
 		return "slide.BitmapItem[" + getLevel() + "," + this.path + "]";
 	}

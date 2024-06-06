@@ -61,7 +61,7 @@ public class Presentation {
 		this.slideViewComponent = slideViewComponent;
 	}
 
-	// Get a slide with a certain slidenumber
+	// Get a slide with a certain slide number
 	public Slide getSlide(int number) {
 		if (0 > number || number >= getSize()){
 			return null;

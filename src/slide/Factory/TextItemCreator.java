@@ -4,6 +4,7 @@ import slide.SlideItem;
 import slide.TextItem;
 
 public class TextItemCreator extends SlideItemCreator {
+    //Creator for text items
     public TextItemCreator() {
     }
 
