@@ -21,6 +21,8 @@ jobs:
 
       - name: Build and run tests with Maven
         run: mvn clean test
+        env:
+          _JAVA_OPTIONS: "-Djava.awt.headless=true"
 
       - name: Upload JaCoCo report
         uses: actions/upload-artifact@v3
