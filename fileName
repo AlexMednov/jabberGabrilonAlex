@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!DOCTYPE presentation SYSTEM "jabberpoint.dtd">
+<presentation>
+<showtitle>null</showtitle>
+<slide>
+<title>Title of slide</title>
+<item kind="text" level="1">Text here</item>
+</slide>
+</presentation>
